@@ -406,19 +406,11 @@ TEST_P(Test_ONNX_layers, BatchNormalization3D)
 
 TEST_P(Test_ONNX_layers, BatchNormalizationUnfused)
 {
-#if defined(INF_ENGINE_RELEASE) && INF_ENGINE_VER_MAJOR_EQ(2021030000)
-    if (backend == DNN_BACKEND_INFERENCE_ENGINE_NGRAPH && target == DNN_TARGET_CPU)
-        applyTestTag(CV_TEST_TAG_DNN_SKIP_IE_CPU, CV_TEST_TAG_DNN_SKIP_IE_NGRAPH);  // exception
-#endif
     testONNXModels("frozenBatchNorm2d");
 }
 
 TEST_P(Test_ONNX_layers, BatchNormalizationSubgraph)
 {
-#if defined(INF_ENGINE_RELEASE) && INF_ENGINE_VER_MAJOR_EQ(2021030000)
-    if (backend == DNN_BACKEND_INFERENCE_ENGINE_NGRAPH && target == DNN_TARGET_CPU)
-        applyTestTag(CV_TEST_TAG_DNN_SKIP_IE_CPU, CV_TEST_TAG_DNN_SKIP_IE_NGRAPH);  // exception
-#endif
     testONNXModels("batch_norm_subgraph");
 }
 
